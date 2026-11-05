@@ -48,6 +48,7 @@ projeto/
 │   ├── banco.h / banco.c     → conexão SQLite e INSERT / SELECT / UPDATE / DELETE
 ├── sql/
 │   └── criar_tabelas.sql     → script de criação das tabelas (+ dados de exemplo opcionais)
+├── sqlite3.c / sqlite3.h     → código-fonte oficial do SQLite 3.50.4 ("amalgamation"), já incluído
 └── README.md
 ```
 
@@ -334,19 +335,19 @@ gcc main.c models/produto.c algoritmos/busca.c algoritmos/ordenacao.c persistenc
    ./estoque.exe
    ```
 
-### 6.3 Windows: opção B, SQLite "amalgamation" (sem instalar a biblioteca)
+### 6.3 Qualquer sistema: opção B, SQLite "amalgamation" (sem instalar a biblioteca)
 
-O SQLite pode ser compilado junto com o projeto a partir de **um único arquivo `.c`**.
+**O repositório já inclui o SQLite**: os arquivos `sqlite3.c` e `sqlite3.h` (versão 3.50.4, baixados de <https://www.sqlite.org/download.html>) estão na pasta do projeto. Basta ter um compilador GCC (MinGW, MSYS2, Linux ou macOS), sem instalar mais nada:
 
-1. Baixe o arquivo **sqlite-amalgamation-XXXXXXX.zip** em <https://www.sqlite.org/download.html>.
-2. Copie `sqlite3.c` e `sqlite3.h` para dentro da pasta `projeto/`.
-3. Compile com qualquer GCC (MinGW, MSYS2 etc.):
-   ```bash
-   gcc -c sqlite3.c -o sqlite3.o
-   gcc -I. main.c models/produto.c algoritmos/busca.c algoritmos/ordenacao.c persistencia/banco.c sqlite3.o -o estoque.exe
-   estoque.exe
-   ```
-   O `sqlite3.c` é grande, e compilá-lo separado (`-c`) evita recompilá-lo a cada alteração do projeto.
+```bash
+gcc -c sqlite3.c -o sqlite3.o
+gcc -I. main.c models/produto.c algoritmos/busca.c algoritmos/ordenacao.c persistencia/banco.c sqlite3.o -o estoque.exe
+estoque.exe
+```
+
+- O `sqlite3.c` é grande. Compilá-lo separado (`-c`) evita recompilá-lo a cada alteração do projeto: o primeiro comando só precisa ser executado uma vez.
+- O `estoque.exe` gerado já contém o SQLite e roda em outro computador sem DLLs extras.
+- No Linux/macOS, use `-o estoque` e execute com `./estoque` (pode ser necessário acrescentar `-lpthread -ldl -lm` no final do segundo comando).
 
 > Os acentos aparecem corretamente no console porque o programa ativa UTF-8 (`SetConsoleOutputCP`) no Windows.
 
