@@ -1,0 +1,14 @@
+# Executáveis e objetos gerados na compilação
+*.exe
+*.o
+*.obj
+estoque
+
+# Banco de dados gerado ao executar o programa
+*.db
+*.db-journal
+
+# Arquivos do editor / sistema
+.vscode/
+Thumbs.db
+.DS_Store
