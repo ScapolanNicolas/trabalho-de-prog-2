@@ -8,9 +8,13 @@ Aplicação de console em **linguagem C** que gerencia produtos e movimentaçõe
 
 | Nome | RA |
 |------|----|
-| _Nome do integrante 1_ | _RA_ |
-| _Nome do integrante 2_ | _RA_ |
-| _Nome do integrante 3_ | _RA_ |
+| _Nicolas De Souza Scapolan Lamas_ | _10738039_ |
+| _Enzo Legat Vianna_ | _10737544_ |
+| _Mateus Di Petta Andrade_ | _10772062_ |
+| _Caua Tavares De Macedo_ | _10771927_ |
+| _Vinicius Cutolo Silva_ | _10738875_ |
+| _Pedro Henrique Souza Chaves_ | _10370835_ |
+
 
 ---
 
