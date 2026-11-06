@@ -304,7 +304,25 @@ FIM DO PROGRAMA
 
 ## 6. Configuração, compilação e execução
 
-Todos os comandos abaixo devem ser executados **dentro da pasta `projeto/`**.
+### 6.0 Executar sem compilar (Windows): forma mais rápida
+
+Para apenas **rodar o programa** em um computador sem compilador (ex.: laboratório da faculdade):
+
+1. No GitHub, abra a seção **Releases** (à direita na página do repositório) e baixe o **`estoque.exe`**.
+2. Coloque o arquivo em uma pasta qualquer (ex.: Área de Trabalho) e dê **dois cliques** nele.
+3. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo** (o aviso aparece porque o executável não tem assinatura digital).
+
+O `estoque.exe` é estático: já contém o SQLite e não precisa de nenhuma instalação. O banco `estoque.db` é criado na mesma pasta do executável.
+
+> O repositório é **privado**: para baixar, é preciso estar logado no GitHub com uma conta que tenha acesso.
+
+### Compilar com dois cliques (Windows com GCC instalado)
+
+Dê dois cliques em **`compilar.bat`**. Ele verifica se o GCC existe, compila o SQLite (só na primeira vez) e gera o `estoque.exe` na pasta do projeto.
+
+---
+
+Todos os comandos abaixo devem ser executados **dentro da pasta do projeto** (onde está o `main.c`).
 
 ### 6.1 Linux (Ubuntu/Debian)
 
